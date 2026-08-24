@@ -12162,6 +12162,7 @@ h1.page-title + .tag-cloud-list {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 10;
   background: var(--anzhiyu-theme);
   color: var(--anzhiyu-white);
   padding-left: 0.5rem;
@@ -12186,12 +12187,43 @@ h1.page-title + .tag-cloud-list {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
+  pointer-events: auto;
   -webkit-transition: cubic-bezier(0.71, 0.15, 0.16, 1.15) 0.6s;
   -moz-transition: cubic-bezier(0.71, 0.15, 0.16, 1.15) 0.6s;
   -o-transition: cubic-bezier(0.71, 0.15, 0.16, 1.15) 0.6s;
   -ms-transition: cubic-bezier(0.71, 0.15, 0.16, 1.15) 0.6s;
   transition: cubic-bezier(0.71, 0.15, 0.16, 1.15) 0.6s;
   font-size: 60px;
+}
+#random-banner #random-hover:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  padding-left: 2rem;
+  background: var(--anzhiyu-theme-op-deep);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  background-size: 200%;
+  cursor: pointer;
 }
 #random-banner #random-hover .bannerText {
   display: -webkit-box;
