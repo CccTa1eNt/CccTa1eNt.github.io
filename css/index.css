@@ -22493,7 +22493,7 @@ i.bber-gotobb {
   transform-origin: left bottom;
   box-shadow: var(--anzhiyu-shadow-border);
   border-radius: 40px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 #nav-music:active {
@@ -22650,7 +22650,26 @@ i.bber-gotobb {
 }
 
 #nav-music .aplayer-list {
-  display: none;
+  position: absolute;
+  bottom: 55px;
+  left: 0;
+  display: block !important;
+  width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background: var(--anzhiyu-card-bg);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+#nav-music.playing .aplayer-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 #nav-music .aplayer .aplayer-info .aplayer-music {
