@@ -22661,15 +22661,12 @@ i.bber-gotobb {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   background: var(--anzhiyu-card-bg);
   z-index: 100;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
 }
-#nav-music.playing .aplayer-list {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+#nav-music .aplayer-list.aplayer-list-hide {
+  display: none !important;
 }
 
 #nav-music .aplayer .aplayer-info .aplayer-music {
@@ -22807,6 +22804,32 @@ i.bber-gotobb {
 }
 #nav-music .aplayer .aplayer-pic .aplayer-button {
   pointer-events: all;
+}
+
+#nav-music .aplayer-list ol {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+}
+#nav-music .aplayer-list ol li {
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#nav-music .aplayer-list ol li:hover {
+  background: var(--anzhiyu-main-op);
+}
+#nav-music .aplayer-list ol li.aplayer-list-light {
+  background: var(--anzhiyu-main-op);
+}
+#nav-music .aplayer-list ol li .aplayer-list-title {
+  color: var(--anzhiyu-fontcolor);
+}
+#nav-music .aplayer-list ol li .aplayer-list-author {
+  color: var(--anzhiyu-secondtext);
+  font-size: 11px;
 }
 
 /* bilibli番剧插件 */
