@@ -997,14 +997,27 @@ const anzhiyu = {
   addEventListenerConsoleMusicList: function () {
     const navMusic = document.getElementById("nav-music");
     if (!navMusic) return;
+    let hideTimer = null;
+    const showList = () => {
+      clearTimeout(hideTimer);
+      navMusic.classList.add("nav-music-list-show");
+    };
+    const hideList = () => {
+      hideTimer = setTimeout(() => {
+        navMusic.classList.remove("nav-music-list-show");
+      }, 300);
+    };
+    navMusic.onmouseenter = showList;
+    navMusic.onmouseleave = hideList;
     navMusic.addEventListener("click", e => {
       const aplayerList = navMusic.querySelector(".aplayer-list");
       const listBtn = navMusic.querySelector(
         "div.aplayer-info > div.aplayer-controller > div.aplayer-time.aplayer-time-narrow > button.aplayer-icon.aplayer-icon-menu svg"
       );
-      if (e.target != listBtn && aplayerList.classList.contains("aplayer-list-hide")) {
+      if (e.target != listBtn && aplayerList && aplayerList.classList.contains("aplayer-list-hide")) {
         aplayerList.classList.remove("aplayer-list-hide");
       }
+      showList();
     });
   },
   // 监听按键 - 页码跳转

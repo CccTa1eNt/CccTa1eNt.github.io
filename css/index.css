@@ -22625,6 +22625,7 @@ i.bber-gotobb {
   transition: 0.3s;
   border: var(--style-border);
   box-shadow: none;
+  overflow: visible !important;
 }
 
 #nav-music.playing .aplayer {
@@ -22830,6 +22831,38 @@ i.bber-gotobb {
 #nav-music .aplayer-list ol li .aplayer-list-author {
   color: var(--anzhiyu-secondtext);
   font-size: 11px;
+}
+
+/* 悬停显示歌单 */
+#nav-music .aplayer-list {
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease !important;
+}
+
+#nav-music:not(.nav-music-list-show) .aplayer-list {
+  display: block !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(10px) !important;
+  pointer-events: none !important;
+}
+
+#nav-music.nav-music-list-show .aplayer-list {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+/* 透明桥接区域，避免鼠标从播放器移到歌单时经过间隙导致列表消失 */
+#nav-music.nav-music-list-show::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 300px;
+  height: 15px;
+  z-index: 100;
 }
 
 /* bilibli番剧插件 */
